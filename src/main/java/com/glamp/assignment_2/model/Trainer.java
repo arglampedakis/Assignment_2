@@ -15,6 +15,7 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -40,12 +41,15 @@ public class Trainer implements Serializable {
     private Integer id;
     @Basic(optional = false)
     @Column(name = "first_name")
+    @Size(min = 3, max = 45, message = "First name must be between 3 and 45 characters!")
     private String firstName;
     @Basic(optional = false)
     @Column(name = "last_name")
+    @Size(min = 3, max = 45, message = "Last name must be between 3 and 45 characters!")
     private String lastName;
     @Basic(optional = false)
     @Column(name = "tr_subject")
+    @Size(min = 2, max = 45, message = "Subject must be between 2 and 45 characters!")
     private String trSubject;
 
     public Trainer() {
