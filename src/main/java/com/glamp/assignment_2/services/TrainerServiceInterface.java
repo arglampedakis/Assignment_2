@@ -23,4 +23,6 @@ public interface TrainerServiceInterface {
     public List<Trainer> getTrainerByNameLike(String name);
     
     public List<Trainer> findAllTrainers();
+    
+    public List<String> findAllTrainersNames();
 }

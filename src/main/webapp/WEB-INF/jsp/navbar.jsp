@@ -1,8 +1,3 @@
-<%-- 
-    Document   : navbar
-    Created on : Jun 23, 2020, 12:56:46 AM
-    Author     : glamb
---%>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top rounded mt-3"
      style="box-shadow: 10px 8px 9px 0px rgb(39, 41, 46);">
@@ -34,34 +29,15 @@
 
     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
         <ul class="navbar-nav ml-auto">
-            <form>
+            <form action="/searchTrainerByName" method="get">
                 <div class="input-group mt-1 ml-auto">
-                    <input type="search" id="searchInput" placeholder="Search trainer by name.." class="form-control">
+                    <input type="search" id="searchInput" name="searchInput" placeholder="Search trainer by name.." class="form-control">
                     <div class="input-group-btn">
-                        <button class="btn btn-dark" id="searchButton">Search</button>
+                        <button type="submit" class="btn btn-dark" id="searchButton">Search</button>
                     </div>
                 </div>
             </form>
         </ul>
     </div>
 </nav>
-<script>
-        var states = [
-            //TODO instead of these, I want trainer names.
-            "Alabama",
-            "Alaska",
-            "Arizona",
-            "Arkansas",
-            "California",
-            "Colorado"
-        ];
-        jQuery_ui('#searchInput').autocomplete({
-            source: states
-        });
-        
-        /*TODO i need to fix the searchButton that will take 
-          the searchInput and run findByFirstNameStartingWith query method */
-        //TODO also need to transfer these in navbarJquery.js 
-        
-        
-    </script>
+<script src="/js/navbarJQuery.js"></script>

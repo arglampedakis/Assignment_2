@@ -51,27 +51,35 @@ public class TrainerController {
             return "redirect:/allTrainers";
         }
     }
-    
-     @ResponseBody
-    @GetMapping("searchTrainerByName/{trname}")
-    public List<Trainer> searchByName(@PathVariable String trname) {
-        List<Trainer> result = trainerServiceInterface.getTrainerByNameLike(trname);
+
+    @GetMapping("/searchTrainerByName")
+    public String searchByName(@ModelAttribute("searchInput") String name,
+            ModelMap mm) {
+        List<Trainer> result = trainerServiceInterface.getTrainerByNameLike(name);
+        mm.addAttribute("trainerList", result);
+        return "trainerDetails";
+    }
+
+    @ResponseBody
+    @GetMapping("/getTrainersNames")
+    public List<String> getAllNames() {
+        List<String> result = trainerServiceInterface.findAllTrainersNames();
         return result;
     }
 
     @GetMapping("/allTrainers")
     public String showTrainersTable(ModelMap mm) {
-         List<Trainer> result = trainerServiceInterface.findAllTrainers();
-         mm.addAttribute("allTrainers", result);
+        List<Trainer> result = trainerServiceInterface.findAllTrainers();
+        mm.addAttribute("allTrainers", result);
         return "trainersTable";
     }
-    
+
     @GetMapping("/deleteTrainer/{id}")
     public String deleteTrainerById(@PathVariable String id) {
         trainerServiceInterface.deleteTrainer(Integer.parseInt(id));
         return "redirect:/allTrainers";
     }
-    
+
     @GetMapping("/updateTrainer/{id}")
     public String updateTrainerById(@PathVariable String id,
             ModelMap mm) {

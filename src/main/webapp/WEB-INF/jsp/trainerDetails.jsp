@@ -1,6 +1,6 @@
 <%-- 
-    Document   : trainerDetails
-    Created on : Jun 23, 2020, 1:46:37 AM
+    Document   : trainersTable
+    Created on : Jun 23, 2020, 3:02:40 PM
     Author     : glamb
 --%>
 
@@ -21,22 +21,33 @@
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
         <script type="text/javascript">
-        var jQuery_ui = $.noConflict(true);
+            var jQuery_ui = $.noConflict(true);
         </script>
+
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+                integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+                integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+                integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
     </head>
     <body>
         <div class="container">
             <jsp:include page="navbar.jsp"></jsp:include>
                 <div class="row my-3">
-                    <img class="rounded" src="/img/trainerstable.jpg" width="100%" height="300" alt="trainertable">
-
+                    <div class="col-6 offset-3">
+                        <img class="rounded img-fluid" src="/img/searching.jpg" height="300px" alt="trainertable">
+                    </div>
                 </div>
                 <div class="row mt-3 bg-light">
-                    <h3 class="display-5 text-center"><i>Trainer Details: </i></h3>
+                    <h3 class="display-5 text-center"><i>Search results: </i></h3>
                 </div>
                 <div class="row mt-1">
 
-                    <table class="table table-striped" id="trainerTable">
+                    <table class="table table-striped " id="trainerTable">
                         <thead>
                             <tr>
                                 <th scope="col" hidden="true">ID</th>
@@ -44,13 +55,15 @@
                                 <th scope="col">First Name</th>
                                 <th scope="col">Last Name</th>
                                 <th scope="col">Subject</th>
+                                <th scope="col">Update</th>
+                                <th scope="col">Delete</th>
                             </tr>
                         </thead>
                         <tbody id="tableBody">
-                        <c:forEach items="${allTrainers}" var="tr">
+                        <c:forEach items="${trainerList}" var="tr">
                             <tr>
                                 <td hidden="true">${tr.id}</td>
-                                <td scope="row">${allTrainers.indexOf(tr)+1}</td>
+                                <td scope="row">${trainerList.indexOf(tr)+1}</td>
                                 <td>${tr.firstName}</td>
                                 <td>${tr.lastName}</td>
                                 <td>${tr.trSubject}</td>
@@ -71,14 +84,7 @@
             </div>
             <jsp:include page="footer.jsp"></jsp:include>
         </div>
-        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-                integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-                integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-                integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
+
+
     </body>
 </html>

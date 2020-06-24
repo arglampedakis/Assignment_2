@@ -51,4 +51,9 @@ public class TrainerServiceImpl implements TrainerServiceInterface {
         return trainerRepository.findAll();
     }
 
+    @Override
+    public List<String> findAllTrainersNames() {
+        return trainerRepository.findAllFirstName();
+    }
+
 }
