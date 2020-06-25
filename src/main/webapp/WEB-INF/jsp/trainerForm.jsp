@@ -85,7 +85,7 @@
                                     </div>
 
                                     <springform:input path="trSubject" cssClass="form-control"
-                                                      placeholder="Type here..." pattern="{3,50}" title="must be between 2 and 45 characters" />
+                                                      placeholder="Type here..." minlength="3" maxlength="50" title="must be between 2 and 45 characters" />
                                     <springform:errors path="trSubject" cssClass="error"/>
                                 </div>
                             </div>
